@@ -1,5 +1,6 @@
 import React from 'react';
 import './SortingVisualizer.css'
+import * as SortingAlgorithms from '../SortingAlgorithms/sortingAlgorithms'
 
 export default class SortingVisualizer extends React.Component {
     constructor(props) {
@@ -22,6 +23,11 @@ export default class SortingVisualizer extends React.Component {
         this.setState({array});
     }
 
+    bubbleSort() {
+        const sortedArray = SortingAlgorithms.bubbleSort(this.state.array);
+        console.log(sortedArray);
+    }
+
     render() {
         const {array} = this.state;
 
@@ -33,6 +39,9 @@ export default class SortingVisualizer extends React.Component {
                 style={{height: `${val}px`}}>
                 </div>
             ))}
+            <br/>
+            <button onClick={() => this.resetArray()}>Reset the Array!</button>
+            <button onClick={() => this.bubbleSort()}>Bubble Sort!</button>
             </div>
         );
     }
