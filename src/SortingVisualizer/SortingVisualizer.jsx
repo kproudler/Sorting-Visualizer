@@ -26,6 +26,8 @@ export default class SortingVisualizer extends React.Component {
     bubbleSort() {
         const sortedArray = SortingAlgorithms.bubbleSort(this.state.array);
         console.log(sortedArray);
+        this.forceUpdate();
+
     }
 
     render() {
@@ -43,7 +45,7 @@ export default class SortingVisualizer extends React.Component {
             <button onClick={() => this.resetArray()}>Reset the Array!</button>
             <button onClick={() => this.bubbleSort()}>Bubble Sort!</button>
             </div>
-        );
+        );      
     }
     
 }

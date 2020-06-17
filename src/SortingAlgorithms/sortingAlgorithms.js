@@ -1,3 +1,5 @@
+// need to create a altArray that will render each time an index is swapped so user can see the change in positions
+
 export const bubbleSort = array => {
     let isSorted = false
 
