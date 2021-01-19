@@ -21,13 +21,24 @@ export default class SortingVisualizer extends React.Component {
             array.push(randomInt(10,600));
         }
         this.setState({array});
+        console.log(this.state.array);
     }
 
     bubbleSort() {
         const sortedArray = SortingAlgorithms.bubbleSort(this.state.array);
         console.log(sortedArray);
-        this.forceUpdate();
+        this.setState((state) => {
+            return { array: sortedArray }
+        })
 
+    }
+
+    mergeSort() {
+        const sortedArray = SortingAlgorithms.mergeSort(this.state.array);
+        console.log(sortedArray);
+        this.setState((state) => {
+            return {array: sortedArray}
+        })
     }
 
     render() {
@@ -44,6 +55,7 @@ export default class SortingVisualizer extends React.Component {
             <br/>
             <button onClick={() => this.resetArray()}>Reset the Array!</button>
             <button onClick={() => this.bubbleSort()}>Bubble Sort!</button>
+            <button onClick={() => this.mergeSort()}>Merge Sort!</button>
             </div>
         );      
     }
